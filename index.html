@@ -4,31 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HGG Animation Studio | 罕呱呱動畫工作室</title>
-    <script src="https://cdn.tailwindcss.com">
-        // 1. 手機選單控制 (原本的)
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // 2. 影片點擊播放控制 (新增的)
-        function togglePlay(container) {
-            const video = container.querySelector('video');
-            const overlay = container.querySelector('.overlay-content');
-
-            if (video.paused) {
-                // 如果暫停中，就播放，並把遮罩隱藏
-                video.play();
-                overlay.style.opacity = '0'; 
-            } else {
-                // 如果播放中，就暫停，並把遮罩顯示出來
-                video.pause();
-                overlay.style.opacity = '1';
-            }
-        }
-   </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* 品牌色定義 */
         :root {
@@ -92,7 +68,7 @@
         </div>
     </nav>
 
-   <header class="relative h-screen flex items-center justify-center overflow-hidden text-white">
+    <header class="relative h-screen flex items-center justify-center overflow-hidden text-white">
         <div class="absolute inset-0 bg-black">
             <video autoplay loop muted playsinline poster="images/hero_fallback.jpg" class="hero-video opacity-60">
                 <source src="images/hero_bg.mp4" type="video/mp4">
@@ -140,7 +116,7 @@
         </div>
     </section>
 
-   <section id="works" class="py-20 bg-gray-50">
+    <section id="works" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold mb-4">精選作品 Works</h2>
@@ -148,20 +124,20 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
                     <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_01.jpg">
                         <source src="images/work_01.mp4" type="video/mp4">
                     </video>
                     <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300 overlay-content">
-                        <div class="text-4xl mb-2 opacity-80">▶️</div> <div>
+                        <div class="text-4xl mb-2 opacity-80">▶️</div> 
+                        <div>
                             <h3 class="text-white text-xl font-bold">作品名稱 01</h3>
                             <p class="text-teal-400">品牌廣告</p>
                         </div>
                     </div>
                 </div>
 
-                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
+                <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
                     <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_02.jpg">
                         <source src="images/work_02.mp4" type="video/mp4">
                     </video>
@@ -174,7 +150,7 @@
                     </div>
                 </div>
 
-                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
+                <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
                     <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_03.jpg">
                         <source src="images/work_03.mp4" type="video/mp4">
                     </video>
@@ -187,7 +163,7 @@
                     </div>
                 </div>
 
-                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
+                <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
                     <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_04.jpg">
                         <source src="images/work_04.mp4" type="video/mp4">
                     </video>
@@ -200,7 +176,7 @@
                     </div>
                 </div>
 
-                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
+                <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
                     <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_05.jpg">
                         <source src="images/work_05.mp4" type="video/mp4">
                     </video>
@@ -213,7 +189,7 @@
                     </div>
                 </div>
 
-                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
+                <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
                     <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_06.jpg">
                         <source src="images/work_06.mp4" type="video/mp4">
                     </video>
@@ -233,7 +209,7 @@
         </div>
     </section>
 
-   <section id="services" class="py-20 bg-white">
+    <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold mb-4">服務與參考價格 Services & Pricing</h2>
@@ -372,6 +348,7 @@
             </div>
         </div>
     </section>
+
     <footer class="bg-black text-gray-400 py-12 text-center">
         <div class="max-w-7xl mx-auto px-4">
             <img src="images/logo_footer.png" alt="HGG Footer Logo" class="h-12 mx-auto mb-6 opacity-80">
@@ -385,12 +362,32 @@
     </footer>
 
     <script>
+        // 1. 手機選單控制
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
 
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
+        // 檢查按鈕是否存在，避免報錯
+        if (btn && menu) {
+            btn.addEventListener('click', () => {
+                menu.classList.toggle('hidden');
+            });
+        }
+
+        // 2. 影片點擊播放控制
+        function togglePlay(container) {
+            const video = container.querySelector('video');
+            const overlay = container.querySelector('.overlay-content');
+
+            if (video.paused) {
+                // 如果暫停中，就播放，並把遮罩隱藏
+                video.play();
+                overlay.style.opacity = '0'; 
+            } else {
+                // 如果播放中，就暫停，並把遮罩顯示出來
+                video.pause();
+                overlay.style.opacity = '1';
+            }
+        }
     </script>
 </body>
 </html>
