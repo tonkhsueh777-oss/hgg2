@@ -4,31 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HGG Animation Studio | 罕呱呱動畫工作室</title>
-    <script src="https://cdn.tailwindcss.com">
-        // 1. 手機選單控制 (原本的)
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-        });
-
-        // 2. 影片點擊播放控制 (新增的)
-        function togglePlay(container) {
-            const video = container.querySelector('video');
-            const overlay = container.querySelector('.overlay-content');
-
-            if (video.paused) {
-                // 如果暫停中，就播放，並把遮罩隱藏
-                video.play();
-                overlay.style.opacity = '0'; 
-            } else {
-                // 如果播放中，就暫停，並把遮罩顯示出來
-                video.pause();
-                overlay.style.opacity = '1';
-            }
-        }
-   </script>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         /* 品牌色定義 */
         :root {
@@ -92,7 +68,7 @@
         </div>
     </nav>
 
-   <header class="relative h-screen flex items-center justify-center overflow-hidden text-white">
+    <header class="relative h-screen flex items-center justify-center overflow-hidden text-white">
         <div class="absolute inset-0 bg-black">
             <video autoplay loop muted playsinline poster="images/hero_fallback.jpg" class="hero-video opacity-60">
                 <source src="images/hero_bg.mp4" type="video/mp4">
@@ -100,22 +76,21 @@
             <div class="absolute inset-0 bg-black/50"></div>
         </div>
 
-        <div class="relative z-10 text-center px-4 max-w-5xl mx-auto mt-10">
-            <h1 class="text-4xl md:text-6xl font-bold mb-8 leading-tight tracking-wide">
-                賦予品牌靈魂，<br>讓想像力具現化。
+        <div class="relative z-10 text-center px-4 max-w-4xl mx-auto mt-10">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6 leading-tight">
+                我們把企業需求轉成<br>可交付的影像內容
             </h1>
-            <p class="text-lg md:text-2xl text-gray-200 mb-10 font-light leading-relaxed">
-                我們將企業策略轉譯為動人的影像語言。<br>
-                透過透明化的製作流程，將創意從紙上腳本完美落實為螢幕上的精彩瞬間。
+            <p class="text-xl md:text-2xl text-gray-200 mb-8 font-light">
+                從腳本到成片，一條線完成。<br>提供清楚的製作流程與交付清單，確保品質不偏差。
             </p>
             <div class="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="#contact" class="bg-teal-600 hover:bg-teal-500 text-white px-8 py-3 rounded text-lg font-bold transition">聯絡我們</a>
+                <a href="#contact" class="bg-teal-600 hover:bg-teal-500 text-white px-8 py-3 rounded text-lg font-bold transition">索取報價</a>
                 <a href="#works" class="border border-white hover:bg-white hover:text-black text-white px-8 py-3 rounded text-lg font-bold transition">查看作品</a>
             </div>
-            <div class="mt-12 flex gap-3 justify-center text-sm text-gray-300 opacity-80">
-                <span class="bg-white/20 px-4 py-1 rounded-full backdrop-blur-sm">#影視廣告</span>
-                <span class="bg-white/20 px-4 py-1 rounded-full backdrop-blur-sm">#2D動畫</span>
-                <span class="bg-white/20 px-4 py-1 rounded-full backdrop-blur-sm">#3D產品演示</span>
+            <div class="mt-8 flex gap-3 justify-center text-sm text-gray-300">
+                <span class="bg-white/20 px-3 py-1 rounded-full">#影視廣告</span>
+                <span class="bg-white/20 px-3 py-1 rounded-full">#2D動畫</span>
+                <span class="bg-white/20 px-3 py-1 rounded-full">#3D產品演示</span>
             </div>
         </div>
     </header>
@@ -140,7 +115,7 @@
         </div>
     </section>
 
-   <section id="works" class="py-20 bg-gray-50">
+    <section id="works" class="py-20 bg-gray-50">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold mb-4">精選作品 Works</h2>
@@ -148,77 +123,54 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
-                    <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_01.jpg">
-                        <source src="images/work_01.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300 overlay-content">
-                        <div class="text-4xl mb-2 opacity-80">▶️</div> <div>
+                <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                    <img src="images/work_01.jpg" alt="Work 1" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-center p-4">
+                        <div>
                             <h3 class="text-white text-xl font-bold">作品名稱 01</h3>
                             <p class="text-teal-400">品牌廣告</p>
                         </div>
                     </div>
                 </div>
-
-                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
-                    <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_02.jpg">
-                        <source src="images/work_02.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300 overlay-content">
-                        <div class="text-4xl mb-2 opacity-80">▶️</div>
+                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                    <img src="images/work_02.jpg" alt="Work 2" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-center p-4">
                         <div>
                             <h3 class="text-white text-xl font-bold">作品名稱 02</h3>
                             <p class="text-teal-400">2D MG 動畫</p>
                         </div>
                     </div>
                 </div>
-
-                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
-                    <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_03.jpg">
-                        <source src="images/work_03.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300 overlay-content">
-                        <div class="text-4xl mb-2 opacity-80">▶️</div>
+                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                    <img src="images/work_03.jpg" alt="Work 3" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-center p-4">
                         <div>
                             <h3 class="text-white text-xl font-bold">作品名稱 03</h3>
                             <p class="text-teal-400">3D 產品結構</p>
                         </div>
                     </div>
                 </div>
-
-                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
-                    <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_04.jpg">
-                        <source src="images/work_04.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300 overlay-content">
-                        <div class="text-4xl mb-2 opacity-80">▶️</div>
+                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                    <img src="images/work_04.jpg" alt="Work 4" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-center p-4">
                         <div>
                             <h3 class="text-white text-xl font-bold">作品名稱 04</h3>
                             <p class="text-teal-400">活動宣傳片</p>
                         </div>
                     </div>
                 </div>
-
-                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
-                    <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_05.jpg">
-                        <source src="images/work_05.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300 overlay-content">
-                        <div class="text-4xl mb-2 opacity-80">▶️</div>
+                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                    <img src="images/work_05.jpg" alt="Work 5" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-center p-4">
                         <div>
                             <h3 class="text-white text-xl font-bold">作品名稱 05</h3>
                             <p class="text-teal-400">逐幀動畫</p>
                         </div>
                     </div>
                 </div>
-
-                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer" onclick="togglePlay(this)">
-                    <video class="w-full h-64 object-cover" loop muted playsinline poster="images/work_06.jpg">
-                        <source src="images/work_06.mp4" type="video/mp4">
-                    </video>
-                    <div class="absolute inset-0 bg-black/60 flex flex-col items-center justify-center text-center p-4 transition-opacity duration-300 overlay-content">
-                        <div class="text-4xl mb-2 opacity-80">▶️</div>
+                 <div class="group relative overflow-hidden rounded-lg shadow-lg cursor-pointer">
+                    <img src="images/work_06.jpg" alt="Work 6" class="w-full h-64 object-cover transform group-hover:scale-110 transition duration-500">
+                    <div class="absolute inset-0 bg-black/70 opacity-0 group-hover:opacity-100 transition duration-300 flex items-center justify-center text-center p-4">
                         <div>
                             <h3 class="text-white text-xl font-bold">作品名稱 06</h3>
                             <p class="text-teal-400">工業流程演示</p>
@@ -233,11 +185,11 @@
         </div>
     </section>
 
-   <section id="services" class="py-20 bg-white">
+    <section id="services" class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-bold mb-4">服務與參考價格 Services & Pricing</h2>
-                <p class="text-gray-600">以下為常見區間 (RMB)，正式報價依腳本、鏡頭與交付規格評估。</p>
+                <p class="text-gray-600">以下為常見區間，正式報價依腳本、鏡頭與交付規格評估。</p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8" id="pricing">
@@ -247,8 +199,8 @@
                     <p class="text-sm text-gray-500 mb-6">適用：品牌片、產品片、發布會影像</p>
                     <div class="text-3xl font-bold mb-6">¥30,000 <span class="text-sm font-normal text-gray-500">起 / 包價</span></div>
                     <ul class="space-y-3 text-sm text-gray-600 mb-8">
-                        <li>✅ 基礎版：¥30,000 - 60,000</li>
-                        <li>⭐ 標準版：¥80,000 - 150,000</li>
+                        <li>✅ 基礎版：¥3-6 萬</li>
+                        <li>⭐ 標準版：¥8-15 萬 (主推)</li>
                         <li>✅ 包含多比例 (16:9 / 9:16)</li>
                     </ul>
                     <a href="#contact" class="block w-full text-center bg-black text-white py-2 rounded hover:bg-teal-600 transition">諮詢此方案</a>
@@ -261,9 +213,9 @@
                     <p class="text-sm text-gray-500 mb-6">適用：資訊解釋、流程說明、視覺包裝</p>
                     <div class="text-3xl font-bold mb-6">¥6,000 <span class="text-sm font-normal text-gray-500">起 / 分鐘</span></div>
                     <ul class="space-y-3 text-sm text-gray-600 mb-8">
-                        <li>✅ MG 入門：¥6,000 - 9,000 / 分</li>
-                        <li>⭐ MG 標準：¥10,000 - 18,000 / 分</li>
-                        <li>✅ 逐幀動畫：¥30,000+ / 分</li>
+                        <li>✅ MG 入門：¥6k - 9k / 分</li>
+                        <li>⭐ MG 標準：¥10k - 18k / 分</li>
+                        <li>✅ 逐幀動畫：¥30k+ / 分</li>
                     </ul>
                     <a href="#contact" class="block w-full text-center bg-teal-600 text-white py-2 rounded hover:bg-teal-700 transition">諮詢此方案</a>
                 </div>
@@ -336,42 +288,60 @@
     </section>
 
     <section id="contact" class="py-20 bg-gray-50">
-        <div class="max-w-5xl mx-auto px-4">
-            <div class="bg-white p-10 md:p-16 rounded-xl shadow-lg text-center">
-                <h2 class="text-3xl font-bold mb-6">聯絡我們</h2>
-                <p class="text-gray-600 mb-12 text-lg">
-                    無論是影視廣告、2D 或 3D 動畫需求，歡迎直接聯繫我們。<br>
-                    我們將儘速回覆您的詢問並提供專業建議。
-                </p>
+        <div class="max-w-4xl mx-auto px-4 bg-white p-8 md:p-12 rounded-xl shadow-lg">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold mb-4">開始您的專案</h2>
+                <p class="text-gray-600">填寫下方表單，我們將在 24 小時內回覆製作建議與報價。</p>
+            </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="p-8 border border-gray-100 rounded-2xl hover:border-teal-600 hover:shadow-lg transition duration-300 group bg-gray-50 hover:bg-white">
-                        <div class="text-4xl mb-4 group-hover:scale-110 transition duration-300">📞</div>
-                        <h3 class="font-bold text-xl mb-3">電話 Phone</h3>
-                        <p class="text-gray-600 font-medium text-lg">
-                            0912-345-678
-                        </p>
+            <form action="mailto:YOUR_EMAIL@GMAIL.COM" method="post" enctype="text/plain" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">姓名 / 公司</label>
+                        <input type="text" name="name" class="w-full border p-3 rounded bg-gray-50 focus:outline-none focus:border-teal-600" placeholder="您的稱呼">
                     </div>
-
-                    <div class="p-8 border border-gray-100 rounded-2xl hover:border-teal-600 hover:shadow-lg transition duration-300 group bg-gray-50 hover:bg-white">
-                        <div class="text-4xl mb-4 group-hover:scale-110 transition duration-300">💬</div>
-                        <h3 class="font-bold text-xl mb-3">微信 WeChat</h3>
-                        <p class="text-gray-600 font-medium text-lg">
-                            HGG_Animation
-                        </p>
-                    </div>
-
-                    <div class="p-8 border border-gray-100 rounded-2xl hover:border-teal-600 hover:shadow-lg transition duration-300 group bg-gray-50 hover:bg-white">
-                        <div class="text-4xl mb-4 group-hover:scale-110 transition duration-300">✉️</div>
-                        <h3 class="font-bold text-xl mb-3">信箱 Email</h3>
-                        <a href="mailto:contact@hggstudio.com" class="text-teal-600 font-medium text-lg hover:underline break-all">
-                            contact@hggstudio.com
-                        </a>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">聯絡電話 / 微信 / Email</label>
+                        <input type="text" name="contact" class="w-full border p-3 rounded bg-gray-50 focus:outline-none focus:border-teal-600" placeholder="方便聯繫的方式">
                     </div>
                 </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div>
+                        <label class="block text-sm font-bold mb-2">需求類型</label>
+                        <select name="type" class="w-full border p-3 rounded bg-gray-50">
+                            <option>影視廣告</option>
+                            <option>2D MG 動畫</option>
+                            <option>3D 產品演示</option>
+                            <option>其他</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold mb-2">預算區間</label>
+                        <select name="budget" class="w-full border p-3 rounded bg-gray-50">
+                            <option>3 萬以內</option>
+                            <option>3 - 6 萬</option>
+                            <option>6 - 15 萬</option>
+                            <option>15 萬以上</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-sm font-bold mb-2">專案描述 (時長、參考風格、用途)</label>
+                    <textarea name="message" rows="4" class="w-full border p-3 rounded bg-gray-50 focus:outline-none focus:border-teal-600" placeholder="請簡述您的需求..."></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-black text-white font-bold py-4 rounded hover:bg-teal-600 transition">發送詢價單</button>
+            </form>
+            
+            <div class="mt-8 text-center text-sm text-gray-500">
+                <p>或直接聯繫：</p>
+                <p class="font-bold text-lg text-black mt-1">contact@hggstudio.com</p>
             </div>
         </div>
     </section>
+
     <footer class="bg-black text-gray-400 py-12 text-center">
         <div class="max-w-7xl mx-auto px-4">
             <img src="images/logo_footer.png" alt="HGG Footer Logo" class="h-12 mx-auto mb-6 opacity-80">
