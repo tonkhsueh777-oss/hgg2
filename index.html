@@ -8,14 +8,14 @@
     <style>
         /* 品牌色定義 */
         :root {
-            --hgg-teal: #008080; /* 根據 Logo 調整的青綠色 */
+            --hgg-teal: #008080;
             --hgg-dark: #1a1a1a;
         }
         .text-teal-brand { color: var(--hgg-teal); }
         .bg-teal-brand { background-color: var(--hgg-teal); }
         .border-teal-brand { border-color: var(--hgg-teal); }
         
-        /* 確保 Hero 影片覆蓋 */
+        /* Hero 影片樣式修正版 (移除 z-index) */
         .hero-video {
             position: absolute;
             top: 50%;
@@ -24,11 +24,10 @@
             min-height: 100%;
             width: auto;
             height: auto;
-            z-index: -1;
+            /* z-index: -1; 已刪除，避免被背景蓋住 */
             transform: translate(-50%, -50%);
             object-fit: cover;
         }
-        /* 簡單的平滑滾動 */
         html { scroll-behavior: smooth; }
     </style>
 </head>
@@ -40,7 +39,6 @@
                 <div class="flex-shrink-0 flex items-center">
                     <img class="h-10 w-auto" src="images/logo_header.png" alt="HGG Animation Studio">
                 </div>
-                
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="#works" class="text-gray-700 hover:text-teal-brand font-medium">作品</a>
                     <a href="#services" class="text-gray-700 hover:text-teal-brand font-medium">服務</a>
@@ -49,7 +47,6 @@
                     <a href="#about" class="text-gray-700 hover:text-teal-brand font-medium">關於</a>
                     <a href="#contact" class="bg-black text-white px-5 py-2 rounded hover:bg-teal-600 transition">聯絡我們</a>
                 </div>
-
                 <div class="md:hidden flex items-center">
                     <button id="mobile-menu-btn" class="text-gray-700 hover:text-black focus:outline-none">
                         <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -263,7 +260,6 @@
     <section id="process" class="py-20 bg-gray-900 text-white">
         <div class="max-w-7xl mx-auto px-4">
             <h2 class="text-3xl font-bold mb-12 text-center">合作流程 Process</h2>
-            
             <div class="grid grid-cols-1 md:grid-cols-5 gap-4 text-center">
                 <div class="relative p-4">
                     <div class="text-4xl mb-4 font-bold text-teal-400">01</div>
@@ -362,7 +358,6 @@
     </footer>
 
     <script>
-    // 這裡我清除了所有隱形符號，請直接複製使用
     var btn = document.getElementById('mobile-menu-btn');
     var menu = document.getElementById('mobile-menu');
 
