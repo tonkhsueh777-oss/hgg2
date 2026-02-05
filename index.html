@@ -362,32 +362,31 @@
     </footer>
 
     <script>
-        // 1. 手機選單控制
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
+    // 這裡我清除了所有隱形符號，請直接複製使用
+    var btn = document.getElementById('mobile-menu-btn');
+    var menu = document.getElementById('mobile-menu');
 
-        // 檢查按鈕是否存在，避免報錯
-        if (btn && menu) {
-            btn.addEventListener('click', () => {
-                menu.classList.toggle('hidden');
-            });
-        }
-
-        // 2. 影片點擊播放控制
-        function togglePlay(container) {
-            const video = container.querySelector('video');
-            const overlay = container.querySelector('.overlay-content');
-
-            if (video.paused) {
-                // 如果暫停中，就播放，並把遮罩隱藏
-                video.play();
-                overlay.style.opacity = '0'; 
+    if(btn && menu){
+        btn.addEventListener('click', function(){
+            if(menu.className.indexOf('hidden') !== -1){
+                menu.classList.remove('hidden');
             } else {
-                // 如果播放中，就暫停，並把遮罩顯示出來
-                video.pause();
-                overlay.style.opacity = '1';
+                menu.classList.add('hidden');
             }
+        });
+    }
+
+    function togglePlay(div){
+        var v = div.querySelector('video');
+        var o = div.querySelector('.overlay-content');
+        if(v.paused){
+            v.play();
+            o.style.opacity = '0';
+        } else {
+            v.pause();
+            o.style.opacity = '1';
         }
+    }
     </script>
 </body>
 </html>
