@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>台灣 2D 動畫行情指南 | VISION MOTION STUDIO</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;700;900&family=Rajdhani:wght@500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS 變數定義 (主題核心) --- */
+        :root {
+            --bg-main: #0a0a0a; /* 極深黑背景 */
+            --bg-secondary: #141414; /* 次級背景 */
+            --text-primary: #ffffff; /* 主要文字 */
+            --text-secondary: #b3b3b3; /* 次要文字 */
+            --accent-cyan: #00f7ff; /* 霓虹青 */
+            --accent-purple: #9d00ff; /* 霓虹紫 */
+            --gradient-accent: linear-gradient(135deg, var(--accent-cyan), var(--accent-purple));
+            --section-spacing: 100px;
+        }
+
+        /* --- 全域設定 --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Rajdhani', 'Noto Sans TC', sans-serif;
+            background-color: var(--bg-main);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4 {
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* 標題下方的帥氣底線 */
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: var(--gradient-accent);
+            transform: skewX(-20deg);
+        }
+
+        p {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        section {
+            padding: var(--section-spacing) 0;
+        }
+
+        /* GSAP 動畫初始狀態 (隱藏) */
+        .gsap-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* --- 導航列 (Header) --- */
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .logo {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 900;
+            background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: 2px;
+        }
+
+        /* --- Hero Section (主視覺) --- */
+        #hero {
+            height: 90vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding-top: 80px;
+        }
+
+        /* 背景動態光影效果 - 整合圖片 */
+        #hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            /* 引入背景圖片 */
+            background-image: url('images/hero-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            /* 使用 multiply 混合模式疊加深色，確保文字清晰 */
+            background-blend-mode: multiply; 
+            background-color: rgba(10,10,10,0.7);
+
+            animation: pulseBg 20s infinite alternate linear;
+            z-index: -1;
+        }
+
+        @keyframes pulseBg {
+            0% { transform: rotate(0deg) scale(1); }
+            100% { transform: rotate(5deg) scale(1.1); }
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 0 0 30px rgba(0, 247, 255, 0.3);
+        }
+        
+        .hero-content h1 span {
+             display: block;
+             font-size: 5rem;
+             background: var(--gradient-accent);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .hero-subtitle {
+            font-size: 1.5rem;
+            max-width: 700px;
+            margin: 0 auto;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.8);
+        }
+
+        /* --- Section 1: 關鍵因素 (Card Layout) --- */
+        .variables-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 60px;
+        }
+
+        .variable-card {
+            background: var(--bg-secondary);
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .variable-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent-cyan);
+            box-shadow: 0 10px 30px rgba(0, 247, 255, 0.1);
+        }
+
+        .variable-card i {
+            font-size: 3rem;
+            margin-bottom: 25px;
+            color: var(--accent-cyan);
+        }
+
+        .variable-card h3 {
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        /* --- Section 2: 收費模式 (Split Layout) --- */
+        #pricing-models {
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        #pricing-models::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent 49%, var(--accent-purple) 49%, var(--accent-purple) 51%, transparent 51%);
+            opacity: 0.05;
+            pointer-events: none;
+        }
+
+        .models-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .model-block {
+            flex: 1;
+            background: rgba(10, 10, 10, 0.8);
+            padding: 50px;
+            border-radius: 20px;
+            border-left: 5px solid var(--accent-cyan);
+            border: 1px solid rgba(255,255,255,0.05);
+        }
+        
+        .model-block.second {
+             border-left-color: var(--accent-purple);
+        }
+
+        .model-block h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .model-block h3 i {
+            margin-right: 15px;
+        }
+
+        .pros-cons ul {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .pros-cons li {
+            margin-bottom: 10px;
+            padding-left: 25px;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .pros-cons li.pro::before {
+            content: '\f00c';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: var(--accent-cyan);
+            position: absolute;
+            left: 0;
+        }
+         .pros-cons li.con::before {
+            content: '\f00d';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            color: #ff4757;
+            position: absolute;
+            left: 0;
+        }
+
+        /* --- Section 3: 行情階梯 (Visual Tiers) - 整合圖片核心區域 --- */
+        .tiers-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .tier-block {
+            display: flex;
+            background: var(--bg-secondary);
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 320px;
+            border: 1px solid rgba(255,255,255,0.05);
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        /* 視覺區域通用設定 */
+        .tier-visual {
+            flex: 1;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 900;
+            font-size: 5rem;
+            color: rgba(255,255,255,0.4); /* 提高亮度 */
+            text-transform: uppercase;
+            /* 新增圖片支援屬性 */
+            background-size: cover;
+            background-position: center;
+            /* 使用 overlay 混合模式，讓圖片與顏色濾鏡融合 */
+            background-blend-mode: overlay;
+            transition: transform 0.5s ease;
+        }
+        
+        /* 滑鼠懸停特效 */
+        .tier-block:hover {
+             border-color: rgba(255,255,255,0.2);
+             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+        .tier-block:hover .tier-visual {
+            transform: scale(1.05);
+        }
+
+        /* --- Tier A 設定 --- */
+        .tier-a .tier-visual { 
+            background-image: url('images/tier-a-basic.jpg');
+            background-color: rgba(40, 40, 40, 0.9); /* 深灰色濾鏡 */
+        }
+        .tier-a .tier-visual::after { content: 'BASIC'; position:absolute; z-index:0; text-shadow: 0 0 20px rgba(0,0,0,0.5);}
+        
+        /* --- Tier B 設定 --- */
+        .tier-b .tier-visual { 
+            background-image: url('images/tier-b-standard.jpg');
+            background-color: rgba(0, 247, 255, 0.4); /* 青色濾鏡 */
+        }
+        .tier-b .tier-visual::after { 
+            content: 'STANDARD'; position:absolute; z-index:0; 
+            color: rgba(0, 255, 255, 0.6);
+            text-shadow: 0 0 30px rgba(0,247,255,0.8);
+        }
+        .tier-b { border-color: rgba(0, 247, 255, 0.3);}
+        .tier-b:hover { box-shadow: 0 0 30px rgba(0, 247, 255, 0.2);}
+
+        /* --- Tier C 設定 --- */
+        .tier-c .tier-visual { 
+            background-image: url('images/tier-c-high-end.jpg');
+            background-color: rgba(157, 0, 255, 0.
