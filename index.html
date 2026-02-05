@@ -78,10 +78,10 @@
             padding: var(--section-spacing) 0;
         }
 
-        /* GSAP 動畫初始狀態 (隱藏) */
+        /* 【修改點】移除隱藏設定，確保內容預設顯示 */
         .gsap-reveal {
-            opacity: 0;
-            transform: translateY(30px);
+            /* opacity: 0;  <-- 已移除 */
+            /* transform: translateY(30px); <-- 已移除 */
         }
 
         /* --- 導航列 (Header) --- */
@@ -348,4 +348,324 @@
         /* --- Tier C 設定 --- */
         .tier-c .tier-visual { 
             background-image: url('images/tier-c-high-end.jpg');
-            background-color: rgba(157, 0, 255, 0.
+            background-color: rgba(157, 0, 255, 0.5); /* 紫色濾鏡 */
+        }
+        .tier-c .tier-visual::after { 
+            content: 'HIGH-END'; position:absolute; z-index:0; 
+            color: rgba(200, 100, 255, 0.7);
+            text-shadow: 0 0 40px rgba(157,0,255,1);
+        }
+        .tier-c { border: 2px solid var(--accent-purple);}
+        .tier-c:hover { box-shadow: 0 0 50px rgba(157, 0, 255, 0.3);}
+        
+        /* Scanline 動畫 */
+        .tier-c::before {
+            content: ''; position: absolute; top:0; left:0; width:100%; height:100%;
+            background: linear-gradient(90deg, transparent, rgba(157,0,255,0.2), transparent);
+            animation: scanline 3s infinite linear;
+            pointer-events: none;
+            z-index: 1;
+        }
+        @keyframes scanline { 0% {transform: translateX(-100%);} 100% {transform: translateX(100%);}}
+
+
+        .tier-content {
+            flex: 2;
+            padding: 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .tier-content h3 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+        
+        .tier-price {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            margin: 20px 0;
+            text-shadow: 0 0 10px rgba(0,247,255,0.3);
+        }
+        .tier-c .tier-price { color: var(--accent-purple); text-shadow: 0 0 10px rgba(157,0,255,0.3); }
+
+        .tier-tags span {
+            display: inline-block;
+            padding: 5px 15px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* --- Section 4: 建議 (Checklist) --- */
+        .advice-list {
+            max-width: 800px;
+            margin: 60px auto 0;
+        }
+
+        .advice-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            background: var(--bg-secondary);
+            padding: 25px;
+            border-radius: 15px;
+            border: 1px solid rgba(255,255,255,0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .advice-item:hover {
+             transform: translateX(10px);
+             border-color: var(--accent-cyan);
+        }
+
+        .advice-num {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 3rem;
+            font-weight: 900;
+            color: var(--accent-cyan);
+            opacity: 0.5;
+            margin-right: 25px;
+            line-height: 1;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background: var(--bg-secondary);
+            padding: 50px 0;
+            text-align: center;
+            margin-top: 100px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+            opacity: 0.6;
+        }
+
+        /* --- RWD 響應式設計 --- */
+        @media (max-width: 992px) {
+            h1 { font-size: 3rem; }
+            .hero-content h1 span { font-size: 4rem; }
+             .tier-visual {
+                font-size: 4rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .hero-content h1 span { font-size: 3.5rem; }
+            h2 { font-size: 2rem; width: 90%;}
+            
+            .models-container {
+                flex-direction: column;
+                gap: 30px;
+            }
+            .model-block { padding: 30px; }
+
+            .tier-block {
+                flex-direction: column;
+                min-height: auto;
+            }
+            .tier-visual {
+                height: 200px; /* 手機版給予固定高度 */
+                font-size: 3.5rem;
+            }
+            
+            .tier-content {
+                padding: 30px 25px;
+            }
+            .tier-price {
+                font-size: 2rem;
+            }
+            
+            .advice-item {
+                flex-direction: column;
+            }
+            .advice-num {
+                margin-bottom: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">VISION MOTION</div>
+        <div style="color: var(--accent-cyan); font-size: 1.2rem;"><i class="fa-solid fa-bars"></i></div>
+    </header>
+
+    <section id="hero">
+        <div class="container hero-content gsap-reveal">
+            <h1>台灣 2D 動畫<br><span>行情完全指南</span></h1>
+            <p class="hero-subtitle">一分錢一分貨的視覺藝術。拆解報價結構，找到最適合你的動態方案。</p>
+        </div>
+    </section>
+
+    <section id="variables">
+        <div class="container">
+            <h2 class="gsap-reveal">影響價格的關鍵因素</h2>
+            <p style="text-align: center;" class="gsap-reveal">動畫不是按鈕產生，每一秒都是手工藝。了解是什麼決定了價格。</p>
+            <div class="variables-grid">
+                <div class="variable-card gsap-reveal">
+                    <i class="fa-solid fa-paintbrush"></i>
+                    <h3>風格與複雜度 (核心)</h3>
+                    <p>從簡易的幾何圖形 MG 到全手繪逐幀動畫。動態越流暢、細節越多，價格越高。</p>
+                </div>
+                <div class="variable-card gsap-reveal">
+                    <i class="fa-solid fa-stopwatch"></i>
+                    <h3>影片長度</h3>
+                    <p>通常以「秒」計費。長度越長總價越高。長片有時會有稍微優惠的單價。</p>
+                </div>
+                <div class="variable-card gsap-reveal">
+                    <i class="fa-solid fa-file-pen"></i>
+                    <h3>前期準備程度</h3>
+                    <p>你有腳本和分鏡嗎？若需要動畫師從零發想創意，需額外計算企劃與設計費。</p>
+                </div>
+                <div class="variable-card gsap-reveal">
+                    <i class="fa-solid fa-rotate-right"></i>
+                    <h3>修改次數</h3>
+                    <p>通常包含 2-3 次小幅修改。牽涉到結構或動作重做的大幅修改需額外收費。</p>
+                </div>
+                <div class="variable-card gsap-reveal">
+                    <i class="fa-solid fa-music"></i>
+                    <h3>聲音設計</h3>
+                    <p>純動畫費通常不含專業配音(VO)、版權音樂與專業音效製作。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing-models">
+        <div class="container">
+            <h2 class="gsap-reveal">常見收費模式</h2>
+            <div class="models-container">
+                <div class="model-block gsap-reveal">
+                    <h3><i class="fa-solid fa-clock" style="color: var(--accent-cyan);"></i> 按「秒/分」計費</h3>
+                    <p>最常見模式，適用於廣告短片或社群影片。評估風格後給出每秒單價。</p>
+                    <div class="pros-cons">
+                        <ul>
+                            <li class="pro">價格透明，容易計算預算。</li>
+                            <li class="con">容易忽略前期企劃與後期聲音成本。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="model-block second gsap-reveal">
+                    <h3><i class="fa-solid fa-box-archive" style="color: var(--accent-purple);"></i> 專案包套報價</h3>
+                    <p>適用完整專案。列出包含企劃、設計、動畫、聲音等所有環節的總價。</p>
+                    <div class="pros-cons">
+                        <ul>
+                            <li class="pro">總預算控制明確，知道總花費。</li>
+                            <li class="con">中途需求變更易產生爭議，需明確合約。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="market-tiers">
+        <div class="container">
+            <h2 class="gsap-reveal">台灣市場行情參考 (NTD)</h2>
+            <p style="text-align: center; margin-bottom: 50px;" class="gsap-reveal">價格僅供參考，浮動極大，通常不含配音與營業稅。</p>
+            
+            <div class="tiers-container">
+                <div class="tier-block tier-a gsap-reveal">
+                    <div class="tier-visual"></div>
+                    <div class="tier-content">
+                        <h3>等級 A：入門級 / 簡易風格</h3>
+                        <p>簡單圖文變換、PPT式動態、素材庫拼湊。適合內部說明或預算極低的需求。</p>
+                        <div class="tier-price">$800 ~ $2,500 / 每秒</div>
+                        <div class="tier-tags">
+                            <span>學生/資淺接案</span>
+                            <span>簡易 MG</span>
+                            <span>內部說明片</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tier-block tier-b gsap-reveal">
+                    <div class="tier-visual"></div>
+                    <div class="tier-content">
+                        <h3>等級 B：商業標準級 / 客製化</h3>
+                        <p>市場最常見。原創美術、流暢MG、標準角色骨架動畫。適合產品介紹與形象短片。</p>
+                        <div class="tier-price">$3,000 ~ $6,000 / 每秒</div>
+                        <div class="tier-tags">
+                            <span>專業工作室/資深接案</span>
+                            <span>角色骨架動畫</span>
+                            <span>社群廣告</span>
+                            <span>產品介紹</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tier-block tier-c gsap-reveal">
+                    <div class="tier-visual"></div>
+                    <div class="tier-content">
+                        <h3>等級 C：高品質 / 精緻廣告級</h3>
+                        <p>知名動畫公司製作。大量手繪逐幀、電影級細節、極度流暢。適合 TVC 或頂級品牌形象。</p>
+                        <div class="tier-price">$7,000 ~ $15,000+ / 每秒</div>
+                        <div class="tier-tags">
+                            <span>頂尖動畫公司</span>
+                            <span>手繪逐幀</span>
+                            <span>電視廣告 TVC</span>
+                            <span>遊戲宣傳</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="advice">
+        <div class="container">
+            <h2 class="gsap-reveal">如何獲得準確報價？</h2>
+            <div class="advice-list">
+                <div class="advice-item gsap-reveal">
+                    <div class="advice-num">01</div>
+                    <div class="advice-content">
+                        <h4>提供參考影片 (Reference)</h4>
+                        <p>找 2-3 支你喜歡的風格影片。這是溝通品質與複雜度最直接的方式。</p>
+                    </div>
+                </div>
+                <div class="advice-item gsap-reveal">
+                    <div class="advice-num">02</div>
+                    <div class="advice-content">
+                        <h4>明確預算範圍 (Budget)</h4>
+                        <p>直接說出預算上限，讓動畫師判斷能用什麼技術規格來滿足你。</p>
+                    </div>
+                </div>
+                <div class="advice-item gsap-reveal">
+                    <div class="advice-num">03</div>
+                    <div class="advice-content">
+                        <h4>確認腳本狀態 (Script)</h4>
+                        <p>你有現成內容，還是需要對方幫你想？這影響前期費用。</p>
+                    </div>
+                </div>
+                <div class="advice-item gsap-reveal">
+                    <div class="advice-num">04</div>
+                    <div class="advice-content">
+                        <h4>用途與交期 (Deadline)</h4>
+                        <p>在哪播放？何時要？急件通常會加收 20%-50% 費用。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="logo" style="margin-bottom: 20px;">VISION MOTION</div>
+            <p>© 2024 VISION MOTION STUDIO. All rights reserved. <br>此網頁為設計範例展示，內容為行情參考。</p>
+        </div>
+    </footer>
+
+    </body>
+</html>
