@@ -6,11 +6,7 @@
     <title>VIP 客户专区 | HGG Animation Studio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        /* 保持品牌色一致 */
-        :root {
-            --hgg-teal: #008080;
-            --hgg-dark: #1a1a1a;
-        }
+        :root { --hgg-teal: #008080; --hgg-dark: #1a1a1a; }
         .text-teal-brand { color: var(--hgg-teal); }
         .bg-teal-brand { background-color: var(--hgg-teal); }
     </style>
@@ -36,110 +32,34 @@
     </nav>
 
     <main class="flex-grow max-w-6xl mx-auto px-4 py-12 w-full">
-        
         <div class="bg-white rounded-xl shadow-md p-8 mb-8 border-t-4 border-teal-600">
             <h1 class="text-2xl font-bold mb-2">客户业务资料中心</h1>
-            <p class="text-gray-500">机密文件下载区，仅供授权客户查阅。</p>
+            <p class="text-gray-500">请选择您的项目以进入详情页面。</p>
         </div>
 
         <div class="bg-white rounded-xl shadow-md overflow-hidden">
-            <div class="px-6 py-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
-                <h3 class="font-bold text-gray-700">项目文件列表</h3>
-                <span class="text-xs bg-teal-100 text-teal-800 px-2 py-1 rounded-full">更新于：2026/02/08</span>
-            </div>
-            
             <div class="overflow-x-auto">
                 <table class="min-w-full divide-y divide-gray-200">
                     <thead class="bg-gray-50">
                         <tr>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">文件名称 / 项目</th>
+                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">项目名称</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">客户单位</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">日期</th>
                             <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">状态</th>
-                            <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
+                            <th class="px-6 py-3 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">操作</th>
                         </tr>
                     </thead>
                     <tbody class="bg-white divide-y divide-gray-200">
                         
-                        <tr class="hover:bg-gray-50 transition">
+                        <tr class="hover:bg-gray-50 transition group">
                             <td class="px-6 py-4">
                                 <div class="flex items-center">
-                                    <span class="text-2xl mr-3">📄</span>
+                                    <span class="text-2xl mr-3">📺</span>
                                     <div>
-                                        <div class="text-sm font-medium text-gray-900">2026 夏季新品发布会 TVC_脚本v2.pdf</div>
-                                        <div class="text-xs text-gray-500">版本：v2.0 (修正版)</div>
+                                        <div class="text-sm font-bold text-gray-900 group-hover:text-teal-700">2026 夏季新品发布会 TVC</div>
+                                        <div class="text-xs text-gray-500">最后更新：2026-02-07</div>
                                     </div>
                                 </div>
                             </td>
                             <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">某某科技集团</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2026-02-07</td>
                             <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">进行中</span>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <a href="#" class="text-teal-600 hover:text-teal-900 hover:underline">下载/查看</a>
-                            </td>
-                        </tr>
-
-                        <tr class="hover:bg-gray-50 transition">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center">
-                                    <span class="text-2xl mr-3">🖼️</span>
-                                    <div>
-                                        <div class="text-sm font-medium text-gray-900">AI 虚拟代言人_风格设定图 (StyleFrame)</div>
-                                        <div class="text-xs text-gray-500">包含 5 张 AIGC 样张</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">武汉文创中心</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2026-02-05</td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-yellow-100 text-yellow-800">待确认</span>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <a href="#" class="text-teal-600 hover:text-teal-900 hover:underline">下载/查看</a>
-                            </td>
-                        </tr>
-
-                        <tr class="hover:bg-gray-50 transition">
-                            <td class="px-6 py-4">
-                                <div class="flex items-center">
-                                    <span class="text-2xl mr-3">💰</span>
-                                    <div>
-                                        <div class="text-sm font-medium text-gray-900">HGG 年度报价单 (2026通用版).pdf</div>
-                                        <div class="text-xs text-gray-500">含影视、动画、AI 服务</div>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">通用资料</td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">2026-01-01</td>
-                            <td class="px-6 py-4 whitespace-nowrap">
-                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-gray-100 text-gray-800">公开</span>
-                            </td>
-                            <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
-                                <a href="#" class="text-teal-600 hover:text-teal-900 hover:underline">下载 PDF</a>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </main>
-
-    <footer class="bg-white border-t border-gray-200 mt-12 py-8">
-        <div class="max-w-7xl mx-auto px-4 text-center">
-            <p class="text-gray-500 text-sm mb-2">
-                如需特定项目的下载权限或资料未更新，请联系薛导或项目经理。
-            </p>
-            <p class="text-teal-600 font-bold text-sm">
-                Email: liagaoo@qq.com
-            </p>
-            <p class="text-gray-400 text-xs mt-8">
-                © 2026 HGG Animation Studio. All rights reserved.
-            </p>
-        </div>
-    </footer>
-
-</body>
-</html>
+                                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded
