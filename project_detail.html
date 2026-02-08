@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目详情 | 2026 夏季新品发布会 TVC</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 品牌色定义 */
+        :root {
+            --hgg-teal: #008080;
+            --hgg-dark: #1a1a1a;
+        }
+        .text-teal-brand { color: var(--hgg-teal); }
+        .bg-teal-brand { background-color: var(--hgg-teal); }
+        .border-teal-brand { border-color: var(--hgg-teal); }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans min-h-screen flex flex-col">
+
+    <nav class="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center gap-3">
+                    <img class="h-8 w-auto" src="images/logo_header.png" alt="HGG Logo">
+                    <div class="border-l border-gray-300 h-5 mx-2"></div>
+                    <span class="font-bold text-gray-700">项目详情页</span>
+                </div>
+                <div>
+                    <a href="client_vip.html" class="flex items-center gap-2 text-sm text-gray-500 hover:text-teal-700 transition font-medium">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/></svg>
+                        返回列表
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow max-w-7xl mx-auto px-4 py-8 w-full">
+        
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+            <div>
+                <h1 class="text-3xl font-bold text-gray-900 mb-2">2026 夏季新品发布会 TVC</h1>
+                <p class="text-gray-500 text-sm">客户：某某科技集团 | 版本：v2.0 (修正版) | 日期：2026-02-08</p>
+            </div>
+            <div class="flex gap-3">
+                <span class="px-4 py-2 bg-teal-100 text-teal-800 rounded-full text-sm font-bold">进行中</span>
+                <button class="px-4 py-2 bg-black text-white rounded hover:bg-gray-800 transition text-sm flex items-center gap-2">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                    下载此版本
+                </button>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            
+            <div class="lg:col-span-2 space-y-8">
+                
+                <div class="bg-black rounded-xl overflow-hidden shadow-2xl relative group">
+                    <video class="w-full aspect-video object-contain" controls poster="images/work_01.jpg">
+                        <source src="images/work_01.mp4" type="video/mp4">
+                        您的浏览器不支持视频播放。
+                    </video>
+                    <div class="p-4 bg-gray-900 text-white flex justify-between items-center">
+                        <span class="font-bold">▶️ 正片预览 (v2.0)</span>
+                        <span class="text-xs text-gray-400">00:30</span>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <span class="text-teal-600">■</span> 关键帧与美术设定
+                    </h3>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                        <div class="aspect-video bg-gray-200 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition">
+                            <img src="images/work_01.jpg" class="w-full h-full object-cover" alt="Scene 01">
+                        </div>
+                        <div class="aspect-video bg-gray-200 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition">
+                            <img src="images/work_02.jpg" class="w-full h-full object-cover" alt="Scene 02">
+                        </div>
+                        <div class="aspect-video bg-gray-200 rounded-lg overflow-hidden cursor-pointer hover:opacity-90 transition">
+                            <img src="images/work_03.jpg" class="w-full h-full object-cover" alt="Scene 03">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lg:col-span-1">
+                <div class="bg-white rounded-xl shadow-md p-6 sticky top-24 border border-gray-100">
+                    
+                    <h3 class="text-lg font-bold mb-6 pb-2 border-b border-gray-100">
+                        💬 针对反馈的修改说明
+                    </h3>
